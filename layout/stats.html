@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Статистика — Личный кабинет</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shell">
+
+    <aside class="sidebar">
+      <div class="sidebar__brand">
+        <span class="sidebar__mark" aria-hidden="true"></span>
+        <span>
+          <span class="sidebar__title">Личный кабинет</span>
+          <span class="sidebar__subtitle">Сервис сообщений</span>
+        </span>
+      </div>
+
+      <nav class="sidebar__nav" aria-label="Основная навигация">
+        <a class="sidebar__link" href="index.html">
+          <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v11H7l-3 3V5z"/></svg>
+          Сообщения
+        </a>
+        <a class="sidebar__link is-active" href="stats.html">
+          <svg class="sidebar__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 20V10M12 20V4M20 20v-7"/></svg>
+          Статистика
+        </a>
+      </nav>
+
+      <div class="sidebar__footer">
+        <span class="sidebar__avatar">ВТ</span>
+        <span class="sidebar__user">
+          <span class="sidebar__name">Валерия Тюменцева</span>
+          <span class="sidebar__role">Оператор</span>
+        </span>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1 class="topbar__title">Статистика</h1>
+          <p class="topbar__hint">Сводка по отправленным и полученным сообщениям</p>
+        </div>
+      </header>
+
+      <main class="content">
+
+        <section class="stat-grid">
+          <div class="panel stat-card stat-card--total">
+            <p class="stat-card__label">Всего сообщений</p>
+            <p class="stat-card__value" id="stat-total">0</p>
+          </div>
+
+          <div class="panel stat-card stat-card--out">
+            <p class="stat-card__label">Отправлено</p>
+            <p class="stat-card__value" id="stat-sent">0</p>
+          </div>
+
+          <div class="panel stat-card stat-card--in">
+            <p class="stat-card__label">Получено</p>
+            <p class="stat-card__value" id="stat-received">0</p>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel__header">
+            <h2 class="panel__title">Активность по дням</h2>
+          </div>
+
+          <table class="activity-table" id="activity-table" style="display: none;">
+            <thead>
+              <tr>
+                <th>Дата</th>
+                <th>Отправлено</th>
+                <th>Получено</th>
+                <th>Итого</th>
+              </tr>
+            </thead>
+            <tbody id="activity-body"></tbody>
+          </table>
+
+          <p class="feed__empty" id="activity-empty">
+            Пока нет данных за какой-либо день. Статистика появится, как только пройдут первые сообщения.
+          </p>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/stats.js"></script>
+</body>
+</html>
